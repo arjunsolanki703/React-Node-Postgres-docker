@@ -1,0 +1,3 @@
+CREATE USER postgres;
+CREATE DATABASE testtask;
+GRANT ALL PRIVILEGES ON DATABASE testtask TO postgres;

@@ -1,0 +1,7 @@
+version: "3"
+services:
+  react_frontend:
+    container_name: "react_frontend"
+    build: ./
+    ports:
+      - "3000:3000"

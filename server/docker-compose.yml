@@ -1,0 +1,22 @@
+version: "3"
+services:
+  node_backend:
+    container_name: "node_backend"
+    build: ./
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: host.docker.internal
+  pg:
+    image: "postgres:12"
+    container_name: "postgres"
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg/db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: postgres
+      POSTGRES_DB: testtask
